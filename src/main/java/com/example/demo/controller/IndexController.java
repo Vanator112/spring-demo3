@@ -30,7 +30,8 @@ public class IndexController {
         List<Carte> carteList =List.of(
                 new Carte("Pe aripile vantului", "Mai 1936", 1037, 180000),
                 new Carte("Mandrie si prejudecata", "Ianuarie 1813", 512, 1500),
-                new Carte ("Patul lui Procust", "Februarie 1933", 500, 15000 )
+                new Carte ("Patul lui Procust", "Februarie 1933", 500, 15000 ),
+                new Carte ("Ferma animalelor", "Februarie 160", 250, 1000 )
         );
         model.addAttribute("carteList", carteList);
 
