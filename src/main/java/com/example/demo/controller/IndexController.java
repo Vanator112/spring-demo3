@@ -11,7 +11,7 @@ import java.util.List;
 @Controller
 public class IndexController {
 
-    @GetMapping(value = "/autor")
+    @GetMapping(value = "/author")
     public String autor(Model model){
 
         List<Autor> autorList =List.of(
@@ -21,21 +21,38 @@ public class IndexController {
         );
         model.addAttribute("autorList", autorList);
 
-        return "autor";
+        return "author";
     }
 
-    @GetMapping(value = "/carte")
+    @GetMapping(value = "/book")
     public String carte(Model model){
 
         List<Carte> carteList =List.of(
-                new Carte("Pe aripile vantului", "Mai 1936", 1037, 180000),
-                new Carte("Mandrie si prejudecata", "Ianuarie 1813", 512, 1500),
-                new Carte ("Patul lui Procust", "Februarie 1933", 500, 15000 )
+                new Carte("Pe aripile vantului", "May 1936", 1037, 180000),
+                new Carte("Mandrie si prejudecata", "January 1813", 512, 1500),
+                new Carte ("Patul lui Procust", "February 1933", 500, 15000 )
         );
         model.addAttribute("carteList", carteList);
 
-        return "carte";
+        return "book";
 
     }
 
+    @GetMapping(value = "/Fbook")
+    public String Fbook()
+    {
+        return "Fbook";
+    }
+
+    @GetMapping(value = "/Fauthor")
+    public String Fauthor()
+    {
+        return "Fauthor";
+    }
+
+    @GetMapping(value = "/index")
+    public String Index()
+    {
+        return "index";
+    }
 }
