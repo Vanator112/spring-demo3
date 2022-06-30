@@ -8,9 +8,8 @@
 
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
+    <div class="container ">
         <a class="navbar-brand" href="#">Navigation</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,16 +20,16 @@
                     <a class="nav-link active" aria-current="page" href="index">Home</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Authors
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><a class="dropdown-item" href="author">Overview</a></li>
                         <li><a class="dropdown-item" href="Fauthor">Add an Author</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Books
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
@@ -42,25 +41,22 @@
         </div>
     </div>
 </nav>
+<h1 class="mx-auto" style="width: 600px;">The Authors and their Books</h1>
 
-<h1>The authors that we have:</h1>
-
-<div class="table-responsive-md">
-    <table class="table table-primary table-hover table-bordered">
-        <thead>
-        <tr>
-            <td>Name of the author</td>
-            <td>Book</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="autor : ${autorList}">
-            <td th:text="${autor.nume}"/>
-            <td th:text="${autor.carte}"/>
-        </tr>
-        </tbody>
-    </table>
-</div>
+<table class="table table-warning table-hover table-bordered mx-auto">
+    <thead>
+    <tr>
+        <td class="fw-bolder">Name of the Author</td>
+        <td class="fw-bolder">Book Written</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="autor : ${autorList}">
+        <td th:text="${autor.nume}"/>
+        <td th:text="${autor.carte}"/>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 
