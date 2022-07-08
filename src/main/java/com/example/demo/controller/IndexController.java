@@ -76,7 +76,6 @@ public class IndexController {
     @PostMapping(value = "/submitBook")
     public String submitBook(@ModelAttribute Book Book){
         System.out.println(Book.toString());
-
         return "index";
     }
 }

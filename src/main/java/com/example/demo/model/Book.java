@@ -15,6 +15,6 @@ public class Book {
     private int numar_pagini;
 
     private int numar_copii;
-}
 
+}
 
