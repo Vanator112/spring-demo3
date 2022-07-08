@@ -41,26 +41,33 @@
     </div>
 </nav>
 
-<h1 class="mx-auto" style="width: 600px;">Add a Book and its Details</h1>
+<form th:action="@{/submitBook}" th:object="${Book}" method="post">
+<div class="text-center">
+<h1 class="mx-auto" style="width: 800px;">Add a book that you recommend:</h1>
+</div>
 <div class="mb-3 mx-auto" style="width: 600px;">
     <label for="exampleFormControlInput1" class="form-label">Book Name</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="e.g.NameOfTheBook">
+    <input type="text" th:field="${Book.nume}" class="form-control" id="exampleFormControlInput1" placeholder="e.g.NameOfTheBook">
 </div>
 <div class="mb-3 mx-auto" style="width: 600px;">
     <label for="exampleFormControlInput1" class="form-label">Date Written</label>
-    <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="e.g.April 1980">
+    <input type="text" th:field="${Book.data_aparitie}" class="form-control" id="exampleFormControlInput2" placeholder="e.g.April 1980">
 </div>
 <div class="mb-3 mx-auto" style="width: 600px;">
     <label for="exampleFormControlInput1" class="form-label">Number of Pages</label>
-    <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="e.g.2000">
+    <input type="text" th:field="${Book.numar_pagini}" class="form-control" id="exampleFormControlInput3" placeholder="e.g.2000">
 </div>
 <div class="mb-3 mx-auto" style="width: 600px;">
     <label for="exampleFormControlInput1" class="form-label">Sold since Published</label>
-    <input type="email" class="form-control" id="exampleFormControlInput4" placeholder="e.g.15000">
+    <input type="text" th:field="${Book.numar_copii}" class="form-control" id="exampleFormControlInput4" placeholder="e.g.15000">
 </div>
-<button type="button" class="btn btn-warning btn-lgmb-3 " >Add</button>
 
+<div class="text-center">
+    <button type="submit" class="btn btn-warning btn-lg ">Submit</button>
+</div>
+</form>
 </body>
+
 <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
 <script th:src="@{/bootstrap/js/bootstrap.bundle.js}"></script>
 </html>

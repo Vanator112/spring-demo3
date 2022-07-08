@@ -41,18 +41,28 @@
     </div>
 </nav>
 
+<form th:action="@{/submitAuthor}" th:object="${Author}" method="post">
+<div class="text-center">
 <h1 class="mx-auto" style="width: 600px;">Add an Author and his Book</h1>
+</div>
 <div class="mb-3 mx-auto" style="width: 600px;">
     <label for="exampleFormControlInput1" class="form-label">Name and Surname</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="e.g.Alexandre Dumas">
+    <input type="text" th:field="${Author.nume}" class="form-control" id="exampleFormControlInput1" placeholder="e.g.Alexandre Dumas">
 </div>
 <div class="mb-3 mx-auto" style="width: 600px;">
     <label for="exampleFormControlInput1" class="form-label">The Book he Written</label>
-    <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="e.g.Cei trei mușchetari">
+    <input type="text" th:field="${Author.carte}" class="form-control" id="exampleFormControlInput2" placeholder="e.g.Cei trei mușchetari">
 </div>
-<button type="button" class="btn btn-warning btn-lg">Add</button>
+
+<div class="text-center">
+<button type="submit" class="btn btn-warning btn-lg ">Submit</button>
+</div>
+</form>
 </body>
+
+
 <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
 <script th:src="@{/bootstrap/js/bootstrap.bundle.js}"></script>
+
 
 </html>
