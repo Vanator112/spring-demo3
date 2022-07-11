@@ -26,6 +26,7 @@ public class IndexController {
 
         return "author";
     }
+    @Autowired
     BookRepository bookRepository;
     @GetMapping(value = "/book")
     public String book(Model model){

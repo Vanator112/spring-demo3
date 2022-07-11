@@ -13,3 +13,4 @@ create table Book(
     numar_copii integer,
     primary key(id)
 );
+
