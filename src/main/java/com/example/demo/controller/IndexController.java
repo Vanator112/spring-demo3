@@ -2,6 +2,9 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Author;
 import com.example.demo.model.Book;
+import com.example.demo.repository.AuthorRepository;
+import com.example.demo.repository.BookRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,31 +16,24 @@ import java.util.List;
 @Controller
 public class IndexController {
 
+    @Autowired
+    AuthorRepository authorRepository;
     @GetMapping(value = "/author")
     public String author(Model model){
 
-        List<Author> authorList =List.of(
-                /*new Author("Margaret Mitchell", "Pe aripile vantului"),
-                new Author("Jane Austen","Mândrie și prejudecata"),
-                new Author("Camil Petrescu","Patul lui Procust")*/
-        );
+        List<Author> authorList = authorRepository.findAll();
         model.addAttribute("authorList", authorList);
 
         return "author";
     }
-
+    BookRepository bookRepository;
     @GetMapping(value = "/book")
     public String book(Model model){
 
-        List<Book> bookList =List.of(
-                /*new Book("Pe aripile vantului", "May 1936", 1037, 180000),
-                new Book("Mandrie si prejudecata", "January 1813", 512, 1500),
-                new Book("Patul lui Procust", "February 1933", 500, 15000 )*/
-        );
+        List<Book> bookList = bookRepository.findAll();
         model.addAttribute("bookList", bookList);
 
         return "book";
-
     }
 
     @GetMapping(value = "/Fbook")
@@ -63,19 +59,24 @@ public class IndexController {
     }
 
     @PostMapping(value = "/submitAuthor")
-    public String submitAuthor(@ModelAttribute Author Author){
+    public String submitAuthor(@ModelAttribute Author Author, Model model){
         System.out.println(Author.toString());
         saveToDataBase(Author);
-        return "index";
+        return "redirect:/author";
     }
 
     private void saveToDataBase(Author author) {
-
+        authorRepository.save(author);
     }
 
     @PostMapping(value = "/submitBook")
-    public String submitBook(@ModelAttribute Book Book){
+    public String submitBook(@ModelAttribute Book Book, Model model){
         System.out.println(Book.toString());
-        return "index";
+        saveToDataBase1(Book);
+        return "redirect:/book";
+    }
+
+    private void saveToDataBase1(Book book) {
+        bookRepository.save(book);
     }
 }
