@@ -20,7 +20,6 @@ public class IndexController {
     AuthorRepository authorRepository;
     @GetMapping(value = "/author")
     public String author(Model model){
-
         List<Author> authorList = authorRepository.findAll();
         model.addAttribute("authorList", authorList);
 
@@ -50,6 +49,10 @@ public class IndexController {
     {
         Author myAuthor = Author.builder().build();
         model.addAttribute("Author", myAuthor);
+
+        List<Book> bookList = bookRepository.findAll();
+        model.addAttribute("bookList", bookList);
+
         return "Fauthor";
     }
 

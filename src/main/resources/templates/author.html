@@ -53,7 +53,7 @@
     <tbody>
     <tr th:each="author : ${authorList}">
         <td th:text="${author.nume}"/>
-        <td th:text="${author.carte}"/>
+        <td th:text="${author.book.nume}"/>
     </tr>
     </tbody>
 </table>

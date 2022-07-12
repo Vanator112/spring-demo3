@@ -3,6 +3,7 @@ package com.example.demo.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,6 +26,9 @@ public class Book {
     private int numar_pagini;
     @Column(name="numar_copii")
     private int numar_copii;
+
+    @OneToMany(mappedBy = "book", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Author> authorList;
 
 }
 

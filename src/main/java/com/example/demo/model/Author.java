@@ -19,6 +19,9 @@ public class Author {
     private int id;
     @Column(name = "nume")
     private String nume;
-    @Column(name = "carte")
-    private String carte;
+
+    @ManyToOne
+    @JoinColumn(name = "id_carte")
+    private Book book;
+
 }

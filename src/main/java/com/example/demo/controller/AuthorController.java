@@ -19,7 +19,7 @@ public class AuthorController{
 
         Author author= Author.builder()
                 .nume("Liviu Rebreanu")
-                .carte("Ion")
+
                 .build();
         authorRepository.save(author);
 

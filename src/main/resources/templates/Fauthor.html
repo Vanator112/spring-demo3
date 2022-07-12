@@ -51,7 +51,9 @@
 </div>
 <div class="mb-3 mx-auto" style="width: 600px;">
     <label for="exampleFormControlInput1" class="form-label">The Book he Written</label>
-    <input type="text" th:field="${Author.carte}" class="form-control" id="exampleFormControlInput2" placeholder="e.g.Cei trei mușchetari">
+    <select th:field="${Author.book.id}">
+        <option th:each="book : ${bookList}" th:value="${book.id}" th:text="${book.nume}"></option>
+    </select>
 </div>
 
 <div class="text-center">
