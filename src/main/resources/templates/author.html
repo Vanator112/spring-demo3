@@ -48,12 +48,23 @@
     <tr>
         <td class="fw-bolder">Name of the Author</td>
         <td class="fw-bolder">Book Written</td>
+        <td class="fw-bolder">Action</td>
     </tr>
     </thead>
     <tbody>
     <tr th:each="author : ${authorList}">
         <td th:text="${author.nume}"/>
         <td th:text="${author.book.nume}"/>
+        <td>
+            <form th:action="@{/editAuthor}" th:object="${author}" method="post">
+                <input class="d-none" name="authorId" th:value="${author.id}">
+                <button class="btn btn-dark">Edit</button>
+            </form>
+            <form th:action="@{/deleteAuthor}" th:object="${author}" method="post">
+                <input class="d-none" name="authorId" th:value="${author.id}">
+                <button class="btn btn-dark">Delete</button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>

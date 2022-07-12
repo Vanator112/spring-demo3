@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class IndexController {
@@ -83,4 +85,22 @@ public class IndexController {
     private void saveToDataBase1(Book book) {
         bookRepository.save(book);
     }
+
+    @PostMapping(value = "/editAuthor")
+    public String editAuthor(@RequestParam("authorId") int id, Model model){
+        Author author = authorRepository.findById(id).get();
+        model.addAttribute("Author", author);
+
+        List<Book> bookList = bookRepository.findAll();
+        model.addAttribute("bookList", bookList);
+        return "Fauthor";
+    }
+
+    @PostMapping(value = "/deleteAuthor")
+    public String deleteAuthor(@RequestParam("authorId") int id){
+        authorRepository.deleteById(id);
+        return "redirect:/author";
+    }
 }
+
+

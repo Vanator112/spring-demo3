@@ -45,6 +45,9 @@
 <div class="text-center">
 <h1 class="mx-auto" style="width: 600px;">Add an Author and his Book</h1>
 </div>
+    <div class="mb-3 mx-auto" style="width: 600px;">
+        <input class="d-none" type="text" th:field="${Author.id}" id="exampleFormControlInput" placeholder="e.g.Alexandre Dumas">
+    </div>
 <div class="mb-3 mx-auto" style="width: 600px;">
     <label for="exampleFormControlInput1" class="form-label">Name and Surname</label>
     <input type="text" th:field="${Author.nume}" class="form-control" id="exampleFormControlInput1" placeholder="e.g.Alexandre Dumas">
